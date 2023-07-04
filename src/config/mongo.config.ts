@@ -3,7 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://root:root@testing.9pysjly.mongodb.net/?retryWrites=true&w=majority', {dbName: 'you-app-test'})
+    //mongo connect db
+    MongooseModule.forRoot('')
   ],
 })
 export class DatabaseModule {}
