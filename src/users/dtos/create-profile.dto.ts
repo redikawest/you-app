@@ -1,4 +1,4 @@
-export class CreateProfileRequest {
+export class CreateProfileDto {
 
     image: object;
 

@@ -4,7 +4,7 @@ import { LoginDto } from '../dtos/login.dto';
 import { RegisterDto } from '../dtos/register.dto';
 import { AuthGuard } from '../guard/auth.guard';
 
-@Controller('auth')
+@Controller('')
 export class AuthController {
 
     constructor(private authService: AuthService) {}
