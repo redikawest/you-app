@@ -1,7 +1,8 @@
-import { Body, Controller, HttpCode, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Post, Request, Res, UseGuards, ValidationPipe } from '@nestjs/common';
 import { AuthService } from '../services/auth.service';
 import { LoginDto } from '../dtos/login.dto';
 import { RegisterDto } from '../dtos/register.dto';
+import { AuthGuard } from '../guard/auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -9,12 +10,21 @@ export class AuthController {
     constructor(private authService: AuthService) {}
 
     @Post('login')
-    login(@Body(new ValidationPipe()) payload: LoginDto) {
-        return this.authService.login();
+    async login(@Res() res, @Body(new ValidationPipe()) payload: LoginDto)
+    {
+        return await this.authService.login(res, payload);
     }
 
     @Post('register')
-    register(@Body(new ValidationPipe()) payload: RegisterDto) {
-        return this.authService.register();
+    async register(@Res() res, @Body(new ValidationPipe()) payload: RegisterDto)
+    {
+        return await this.authService.register(res, payload);
+    }
+
+    //test auth guard
+    @UseGuards(AuthGuard)
+    @Get('profile')
+    getProfile(@Request() req) {
+        return req.user;
     }
 }
