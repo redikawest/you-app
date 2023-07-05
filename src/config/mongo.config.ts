@@ -3,8 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    //mongo connect db
-    MongooseModule.forRoot('')
+    MongooseModule.forRoot(process.env.MONGODB_URL)
   ],
 })
 export class DatabaseModule {}

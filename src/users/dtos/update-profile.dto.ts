@@ -1,18 +1,18 @@
 export class UpdateProfileDto {
 
-    image: object;
+    image: string;
 
     gender: string;
 
-    birthDay: string;
+    birthDate: string;
 
     horoscope: string;
 
     zodiac: string;
 
-    height: string;
+    height: number;
 
-    weight: string;
+    weight: number;
 
     interests: [];
 }

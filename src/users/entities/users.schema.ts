@@ -34,6 +34,9 @@ export class User {
 
     @Prop({ required: false })
     weight: number;
+
+    @Prop({ required: false })
+    gender: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

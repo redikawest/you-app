@@ -2,11 +2,11 @@ import { HttpStatus, Injectable, Res } from '@nestjs/common';
 import { RegisterDto } from '../dtos/register.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User, UserDocument } from 'src/users/entities/users.schema';
+import { User, UserDocument } from '../../users/entities/users.schema';
 import { LoginDto } from '../dtos/login.dto';
-import { bcryptCompare, bcryptHash } from 'src/utils/bcrypt.utils';
+import { bcryptCompare, bcryptHash } from '../../utils/bcrypt.utils';
 import { JwtService } from '@nestjs/jwt';
-import { errorResponse, successResponse } from 'src/utils/api.response';
+import { errorResponse, successResponse } from '../../utils/api.response';
 
 @Injectable()
 export class AuthService {
